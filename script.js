@@ -1,22 +1,56 @@
 let choices = ["ROCK", "PAPER", "SCISSORS"];
 
 function getComputerChoice() {
-    let choices = ["ROCK", "PAPER", "SCISSORS"];
     let randomIndex = Math.floor(Math.random() * choices.length);
-    alert(choices[randomIndex]);
+    return choices[randomIndex];
 }
 
-function playerSelection() {
+function getPlayerChoice() {
     let choice = prompt("Choice: Rock, Paper, Scissors?");
     choice = choice.toUpperCase();
+    return choice;
+}
 
-    if(choices.includes(choice)) {
-        alert(choice);
+function playRound(playerSelection, computerSelection) {
+    if(!choices.includes(playerSelection)) {
+        alert("Nu ai introdus datele corecte");
         return;
     }
     
-    alert("Input is not good");
+    if(playerSelection === "ROCK") {
+        if(computerSelection === "ROCK") {
+            alert("Egal");
+            return;
+        } else if(computerSelection === "PAPER") {
+            alert("Ai pierdut! Hartia bate Piatra");
+            return;
+        } else if(computerSelection === "SCISSORS") {
+            alert("Ai castigat! Piatra bate Foarfecele!");
+            return;
+        }
+    } else if(playerSelection === "PAPER") {
+        if(computerSelection === "PAPER") {
+            alert("Egal");
+            return;
+        } else if(computerSelection === "SCISSORS") {
+            alert("Ai pierdut! Foarfecele bate Hartia");
+            return;
+        } else if(computerSelection === "ROCK") {
+            alert("Ai castigat! Hartia bate Piatra!");
+            return;
+        }
+    } else if(playerSelection === "SCISSORS") {
+        if(computerSelection === "SCISSORS") {
+            alert("Egal");
+            return;
+        } else if(computerSelection === "ROCK") {
+            alert("Ai pierdut! Piatra bate Hartia");
+            return;
+        } else if(computerSelection === "PAPER") {
+            alert("Ai castigat! Foarfecele bate Piatra!");
+            return;
+        }
+    }
 }
 
-playerSelection();
-// getComputerChoice();
+playRound(getPlayerChoice(), getComputerChoice());
