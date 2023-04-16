@@ -63,7 +63,6 @@ function game() {
 
         if(winner === 1){
             computerScore++;
-            alert(`Calulator - Player: ${computerScore} - ${playerScore}`);
         } else if (winner === 2) {
             playerScore++;
         }
