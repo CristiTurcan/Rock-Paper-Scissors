@@ -75,6 +75,7 @@ function playRound(playerSelection, computerSelection) {
 
 let computerScore = 0;
 let playerScore = 0;
+let rounds = 0;
 score.textContent = `Score: Computer ${computerScore} - Player ${playerScore}`;
 
 function playerChoice(e) {
@@ -85,13 +86,20 @@ function playerChoice(e) {
     else if (winner === 2) playerScore ++;
 
     score.textContent = `Score: Computer ${computerScore} - Player ${playerScore}`;
+    rounds++;
+    if(rounds === 5) {
+        document.querySelector('.choices').style.display = 'none'; // make buttons dissapear
+        if(computerScore > playerScore) {
+            score.textContent = `Computer Won!\nScore: Computer ${computerScore} - Player ${playerScore}`;
+        } else if (computerScore < playerScore) {
+            score.textContent = `Player Won!\nScore: Computer ${computerScore} - Player ${playerScore}`;
+        } else {
+            score.textContent = `It's a tie!\nScore: Computer ${computerScore} - Player ${playerScore}`;
+        }
+    }
 }
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', playerChoice);
 });
-
-function game(e) {
-
-}
