@@ -5,11 +5,13 @@ function getComputerChoice() {
     return choices[randomIndex];
 }
 
-function getPlayerChoice() {
-    let choice = prompt("Choice: Rock, Paper, Scissors?");
-    choice = choice.toUpperCase();
-    return choice;
-}
+// function getPlayerChoice() {
+//     let choice = prompt("Choice: Rock, Paper, Scissors?");
+//     choice = choice.toUpperCase();
+//     return choice;
+// }
+
+const score = document.querySelector("#score");
 
 function playRound(playerSelection, computerSelection) {
     if(!choices.includes(playerSelection)) {
@@ -53,27 +55,25 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    let computerScore = 0;
-    let playerScore = 0;
-    let winner = 0;
+// function game() {
+//     let computerScore = 0;
+//     let playerScore = 0;
+//     let winner = 0;
 
-    for(let i = 0; i < 5; i++){
-        winner = playRound(getPlayerChoice(), getComputerChoice());
+//     for(let i = 0; i < 5; i++){
+//         winner = playRound(getPlayerChoice(), getComputerChoice());
 
-        if(winner === 1){
-            computerScore++;
-        } else if (winner === 2) {
-            playerScore++;
-        }
+//         if(winner === 1){
+//             computerScore++;
+//         } else if (winner === 2) {
+//             playerScore++;
+//         }
 
-        alert(`Calulator - Player: ${computerScore} - ${playerScore}`);
-    }
+//         alert(`Calulator - Player: ${computerScore} - ${playerScore}`);
+//     }
 
-    alert(`Meciul s-a terminat! Scor final:\nCalculator - Player: ${computerScore} - ${playerScore}`)
-}
-
-//game();
+//     alert(`Meciul s-a terminat! Scor final:\nCalculator - Player: ${computerScore} - ${playerScore}`)
+// }
 
 function playerChoice(e) {
     let choice = this.id.toUpperCase();
