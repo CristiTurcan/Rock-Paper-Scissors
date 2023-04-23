@@ -75,12 +75,12 @@ function game() {
 
 //game();
 
-function alertID(e) {
+function playerChoice(e) {
     let choice = this.id.toUpperCase();
     playRound(choice, getComputerChoice());
 }
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
-    button.addEventListener('click', alertID);
+    button.addEventListener('click', playerChoice);
 });
