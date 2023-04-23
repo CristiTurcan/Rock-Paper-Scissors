@@ -4,12 +4,6 @@ function getComputerChoice() {
     return choices[randomIndex];
 }
 
-// function getPlayerChoice() {
-//     let choice = prompt("Choice: Rock, Paper, Scissors?");
-//     choice = choice.toUpperCase();
-//     return choice;
-// }
-
 const stats = document.querySelector('#stats');
 
 function playRound(playerSelection, computerSelection) {
@@ -48,26 +42,6 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 }
-
-// function game() {
-//     let computerScore = 0;
-//     let playerScore = 0;
-//     let winner = 0;
-
-//     for(let i = 0; i < 5; i++){
-//         winner = playRound(getPlayerChoice(), getComputerChoice());
-
-//         if(winner === 1){
-//             computerScore++;
-//         } else if (winner === 2) {
-//             playerScore++;
-//         }
-
-//         alert(`Calulator - Player: ${computerScore} - ${playerScore}`);
-//     }
-
-//     alert(`Meciul s-a terminat! Scor final:\nCalculator - Player: ${computerScore} - ${playerScore}`)
-// }
 
 let computerScore = 0;
 let playerScore = 0;
