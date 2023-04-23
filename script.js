@@ -44,7 +44,7 @@ function playRound(playerSelection, computerSelection) {
             alert("Egal");
             return 0;
         } else if(computerSelection === "ROCK") {
-            alert("Ai pierdut! Piatra bate Hartia");
+            alert("Ai pierdut! Piatra bate Foarfecele");
             return 1;
         } else if(computerSelection === "PAPER") {
             alert("Ai castigat! Foarfecele bate Piatra!");
@@ -73,4 +73,14 @@ function game() {
     alert(`Meciul s-a terminat! Scor final:\nCalculator - Player: ${computerScore} - ${playerScore}`)
 }
 
-game();
+//game();
+
+function alertID(e) {
+    let choice = this.id.toUpperCase();
+    alert(choice);
+}
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', alertID);
+});
