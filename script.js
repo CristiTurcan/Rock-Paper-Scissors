@@ -11,6 +11,8 @@ function getComputerChoice() {
 //     return choice;
 // }
 
+const stats = document.querySelector('#stats');
+
 function playRound(playerSelection, computerSelection) {
     if(!choices.includes(playerSelection)) {
         alert("Nu ai introdus datele corecte");
@@ -19,35 +21,35 @@ function playRound(playerSelection, computerSelection) {
     
     if(playerSelection === "ROCK") {
         if(computerSelection === "ROCK") {
-            alert("Egal");
+            stats.textContent = 'Egal';
             return 0;
         } else if(computerSelection === "PAPER") {
-            alert("Ai pierdut! Hartia bate Piatra");
+            stats.textContent = 'Ai pierdut! Hartia bate Piatra!';
             return 1;
         } else if(computerSelection === "SCISSORS") {
-            alert("Ai castigat! Piatra bate Foarfecele!");
+            stats.textContent = 'Ai castigat! Piatra bate Foarfecele!';
             return 2;
         }
     } else if(playerSelection === "PAPER") {
         if(computerSelection === "PAPER") {
-            alert("Egal");
+            stats.textContent = 'Egal';
             return 0;
         } else if(computerSelection === "SCISSORS") {
-            alert("Ai pierdut! Foarfecele bate Hartia");
+            stats.textContent = 'Ai pierdut! Foarfecele bate Hartia!'
             return 1;
         } else if(computerSelection === "ROCK") {
-            alert("Ai castigat! Hartia bate Piatra!");
+            stats.textContent = 'Ai castigat! Hartia bate Piatra!'
             return 2;
         }
     } else if(playerSelection === "SCISSORS") {
         if(computerSelection === "SCISSORS") {
-            alert("Egal");
+            stats.textContent = 'Egal';
             return 0;
         } else if(computerSelection === "ROCK") {
-            alert("Ai pierdut! Piatra bate Foarfecele");
+            stats.textContent = 'Ai pierdut! Piatra bate Foarfecele!';
             return 1;
         } else if(computerSelection === "PAPER") {
-            alert("Ai castigat! Foarfecele bate Piatra!");
+            stats.textContent = 'Ai castigat! Foarfecele bate Piatra!';
             return 2;
         }
     }
@@ -89,6 +91,7 @@ function playerChoice(e) {
     rounds++;
     if(rounds === 5) {
         document.querySelector('.choices').style.display = 'none'; // make buttons dissapear
+        stats.style.display = 'none'; // stats div dissapear
         if(computerScore > playerScore) {
             score.textContent = `Computer Won!\nScore: Computer ${computerScore} - Player ${playerScore}`;
         } else if (computerScore < playerScore) {
