@@ -11,8 +11,6 @@ function getComputerChoice() {
 //     return choice;
 // }
 
-const score = document.querySelector("#score");
-
 function playRound(playerSelection, computerSelection) {
     if(!choices.includes(playerSelection)) {
         alert("Nu ai introdus datele corecte");
@@ -75,12 +73,25 @@ function playRound(playerSelection, computerSelection) {
 //     alert(`Meciul s-a terminat! Scor final:\nCalculator - Player: ${computerScore} - ${playerScore}`)
 // }
 
+let computerScore = 0;
+let playerScore = 0;
+score.textContent = `Score: Computer ${computerScore} - Player ${playerScore}`;
+
 function playerChoice(e) {
     let choice = this.id.toUpperCase();
-    playRound(choice, getComputerChoice());
+    let winner = playRound(choice, getComputerChoice());
+    
+    if(winner === 1) computerScore ++;
+    else if (winner === 2) playerScore ++;
+
+    score.textContent = `Score: Computer ${computerScore} - Player ${playerScore}`;
 }
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', playerChoice);
 });
+
+function game(e) {
+
+}
