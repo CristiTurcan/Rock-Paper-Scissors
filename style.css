@@ -19,6 +19,7 @@ body {
     font-weight: bold;
     color: white;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 #stats {
@@ -39,4 +40,13 @@ button {
     margin : 0 20px;
     cursor: pointer;
     user-select: none;
+}
+
+@media screen and (max-width: 450px) {
+    button {
+        height: 70px;
+        width: 70px;
+        margin: 0 10px;
+        font-size: 12px;
+    }
 }
