@@ -1,6 +1,5 @@
-let choices = ["ROCK", "PAPER", "SCISSORS"];
-
 function getComputerChoice() {
+    let choices = ["ROCK", "PAPER", "SCISSORS"];
     let randomIndex = Math.floor(Math.random() * choices.length);
     return choices[randomIndex];
 }
@@ -14,11 +13,6 @@ function getComputerChoice() {
 const stats = document.querySelector('#stats');
 
 function playRound(playerSelection, computerSelection) {
-    if(!choices.includes(playerSelection)) {
-        alert("Nu ai introdus datele corecte");
-        return 3;
-    }
-    
     if(playerSelection === "ROCK") {
         if(computerSelection === "ROCK") {
             stats.textContent = 'Egal';
@@ -80,6 +74,24 @@ let playerScore = 0;
 let rounds = 0;
 score.textContent = `Score: Computer ${computerScore} - Player ${playerScore}`;
 
+const choices = document.querySelector('.choices');
+
+const retry = document.querySelector('#retry');
+retry.style.display = 'none';
+
+function tryAgain() {
+    computerScore = 0;
+    playerScore = 0;
+    rounds = 0;
+    score.textContent = `Score: Computer ${computerScore} - Player ${playerScore}`;
+    choices.style.display = 'block';
+    stats.style.display = 'block';
+    stats.textContent = "";
+    retry.style.display = 'none';
+}
+
+retry.addEventListener('click', tryAgain);
+
 function playerChoice(e) {
     let choice = this.id.toUpperCase();
     let winner = playRound(choice, getComputerChoice());
@@ -90,8 +102,9 @@ function playerChoice(e) {
     score.textContent = `Score: Computer ${computerScore} - Player ${playerScore}`;
     rounds++;
     if(rounds === 5) {
-        document.querySelector('.choices').style.display = 'none'; // make buttons dissapear
+        choices.style.display = 'none'; // make buttons dissapear
         stats.style.display = 'none'; // stats div dissapear
+        retry.style.display = 'inline-block'; //retry button appears
         if(computerScore > playerScore) {
             score.textContent = `Computer Won!\nScore: Computer ${computerScore} - Player ${playerScore}`;
         } else if (computerScore < playerScore) {
