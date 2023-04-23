@@ -77,7 +77,7 @@ function game() {
 
 function alertID(e) {
     let choice = this.id.toUpperCase();
-    alert(choice);
+    playRound(choice, getComputerChoice());
 }
 
 const buttons = document.querySelectorAll('button');
