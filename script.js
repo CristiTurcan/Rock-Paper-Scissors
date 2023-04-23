@@ -56,10 +56,9 @@ retry.style.display = 'none';
 function tryAgain() {
     computerScore = 0;
     playerScore = 0;
-    rounds = 0;
+    rounds = -1;
     score.textContent = `Score: Computer ${computerScore} - Player ${playerScore}`;
     choices.style.display = 'block';
-    stats.style.display = 'block';
     stats.textContent = "";
     retry.style.display = 'none';
 }
@@ -77,19 +76,20 @@ function playerChoice(e) {
     rounds++;
     if(rounds === 5) {
         choices.style.display = 'none'; // make buttons dissapear
-        stats.style.display = 'none'; // stats div dissapear
         retry.style.display = 'inline-block'; //retry button appears
         if(computerScore > playerScore) {
-            score.textContent = `Computer Won!\nScore: Computer ${computerScore} - Player ${playerScore}`;
+            score.textContent = `You Lose! Score: Computer ${computerScore} - Player ${playerScore}`;
         } else if (computerScore < playerScore) {
-            score.textContent = `Player Won!\nScore: Computer ${computerScore} - Player ${playerScore}`;
+            score.textContent = `You Win! Score: Computer ${computerScore} - Player ${playerScore}`;
         } else {
-            score.textContent = `It's a tie!\nScore: Computer ${computerScore} - Player ${playerScore}`;
+            score.textContent = `It's a tie! Score: Computer ${computerScore} - Player ${playerScore}`;
         }
     }
+    console.log(rounds);
 }
 
 const buttons = document.querySelectorAll('button');
+
 buttons.forEach((button) => {
     button.addEventListener('click', playerChoice);
 });
