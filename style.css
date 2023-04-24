@@ -46,16 +46,14 @@ button {
     text-align: center;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 450px) {
     button {
         height: 70px;
         width: 70px;
         margin: 0 5px;
         font-size: 12px;
     }
-}
 
-@media screen and (max-width: 600px) {
     .score,
     .scoreCount,
     .result {
