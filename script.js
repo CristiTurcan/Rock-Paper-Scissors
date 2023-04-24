@@ -46,7 +46,13 @@ function playRound(playerSelection, computerSelection) {
 let computerScore = 0;
 let playerScore = 0;
 let rounds = 0;
-score.textContent = `Score: Computer ${computerScore} - Player ${playerScore}`;
+
+const score = document.querySelector('.score');
+
+const scoreCount = document.querySelector('.scoreCount');
+scoreCount.textContent = `${computerScore} - ${playerScore}`;
+
+const result = document.querySelector('.result');
 
 const choices = document.querySelector('.choices');
 
@@ -57,13 +63,29 @@ function tryAgain() {
     computerScore = 0;
     playerScore = 0;
     rounds = -1;
-    score.textContent = `Score: Computer ${computerScore} - Player ${playerScore}`;
+    scoreCount.textContent = `${computerScore} - ${playerScore}`;
     choices.style.display = 'block';
     stats.textContent = "";
     retry.style.display = 'none';
+    result.style.display = 'none';
 }
 
 retry.addEventListener('click', tryAgain);
+
+function finalScore(playerScore, computerScore) {
+    choices.style.display = 'none'; // make buttons dissapear
+    retry.style.display = 'inline-block'; //retry button appears
+    if(computerScore > playerScore) {
+        scoreCount.textContent = `${computerScore} - ${playerScore}`;
+        result.textContent = `You lose!`;
+    } else if (computerScore < playerScore) {
+        scoreCount.textContent = `${computerScore} - ${playerScore}`;
+        result.textContent = 'You win!';
+    } else {
+        scoreCount.textContent = `${computerScore} - ${playerScore}`;
+        result.textContent = 'You tie!';
+    }
+}
 
 function playerChoice(e) {
     let choice = this.id.toUpperCase();
@@ -72,18 +94,10 @@ function playerChoice(e) {
     if(winner === 1) computerScore ++;
     else if (winner === 2) playerScore ++;
 
-    score.textContent = `Score: Computer ${computerScore} - Player ${playerScore}`;
+    scoreCount.textContent = `${computerScore} - ${playerScore}`;
     rounds++;
     if(rounds === 5) {
-        choices.style.display = 'none'; // make buttons dissapear
-        retry.style.display = 'inline-block'; //retry button appears
-        if(computerScore > playerScore) {
-            score.textContent = `You Lose! Score: Computer ${computerScore} - Player ${playerScore}`;
-        } else if (computerScore < playerScore) {
-            score.textContent = `You Win! Score: Computer ${computerScore} - Player ${playerScore}`;
-        } else {
-            score.textContent = `It's a tie! Score: Computer ${computerScore} - Player ${playerScore}`;
-        }
+        finalScore(playerScore, computerScore);
     }
     console.log(rounds);
 }

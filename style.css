@@ -14,7 +14,9 @@ body {
     width: 100vw;
 }
 
-#score {
+.score,
+.scoreCount,
+.result {
     font-size: 30px;
     font-weight: bold;
     color: white;
