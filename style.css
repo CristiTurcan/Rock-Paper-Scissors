@@ -48,9 +48,17 @@ button {
 
 @media screen and (max-width: 450px) {
     button {
-        min-height: 70px;
-        min-width: 70px;
+        height: 70px;
+        width: 70px;
         margin: 0 5px;
         font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .score,
+    .scoreCount,
+    .result {
+        font-size: 20px;
     }
 }
