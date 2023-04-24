@@ -46,7 +46,7 @@ button {
     text-align: center;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 600px) {
     button {
         height: 70px;
         width: 70px;
@@ -55,7 +55,7 @@ button {
     }
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 600px) {
     .score,
     .scoreCount,
     .result {
